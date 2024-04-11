@@ -1,0 +1,75 @@
+﻿@model WebApplication2_.net_framework_.Models.Tb_Transportador
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Tb_Transportador</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Tb_Area_Actuacao.Area_Actuacao)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Tb_Area_Actuacao.Area_Actuacao)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Tb_Estado.Estado)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Tb_Estado.Estado)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tb_Tipo_Veiculo.Tipo_Veiculo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tb_Tipo_Veiculo.Tipo_Veiculo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Tb_Unidade_de_Medida.Unidade_de_Medida)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Tb_Unidade_de_Medida.Unidade_de_Medida)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Tb_Usuarios.Nome)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Tb_Usuarios.Nome)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Preco)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Preco)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Imagem)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Imagem)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id_Transportador }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

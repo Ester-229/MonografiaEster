@@ -1,0 +1,32 @@
+﻿@*@model .Tb_Produtor_Produtos*@
+@{
+    ViewBag.Title = "Comprador";
+    Layout = "~/Views/ViewSistem/Comprador/_CompLayoutPage1.cshtml";
+}
+
+<h2>Comprador</h2>
+
+
+@*
+    <div class="row row-cols-1 row-cols-md-3">
+        @foreach (var item in Model)
+        {
+            <div class="col">
+                <div class="card" style="width: 18rem;">
+                    <img src="@Url.Content(item.ProdutoImg) " class="d-block w-100" alt="..." />
+                    <div class="caption">
+                        <div class="card-body">
+                            <h5 class="card-title">Nome: @item.Id_Produtos</h5>
+
+                            <p class="card-text">Produtor: @item.Tb_Usuarios.Nome</p>
+                            <p class="card-text">Descrição: @item.Descricao</p>
+                            <p class="card-title">Preço: @item.Preco Kz</p>
+                            <p class="card-title">Quatidades: @item.Quantidade_Disponiveis  @item.Tb_Unidade_de_Medida.Unidade_de_Medida</p>
+                            <p class="card-title">Estado: @item.Estado </p>
+                            <a href="@Url.Action("Notificacoes", "Comprador")" class="btn btn-success">Comprar</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div> *@

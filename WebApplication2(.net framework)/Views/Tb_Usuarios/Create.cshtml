@@ -1,0 +1,151 @@
+﻿@model WebApplication2_.net_framework_.Models.Tb_Usuarios
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link href="~/Style/css/portal.css" rel="stylesheet" />
+    <title> www.nzandu.co.ao - Cadastro</title>
+</head>
+
+<body class="app app-signup p-0 d-inline-block">
+
+    @using (Html.BeginForm("Create", "Tb_Usuarios", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="@*row g-0*@ @*app-auth-wrapper*@">
+            <div class="col-12 @*col-md-7 col-lg-6*@ auth-main-col text-center p-5">
+                <div class="d-flex flex-column  align-content-end">
+                    <div class="app-auth-body mx-auto">
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        <div class="auth-form-container text-start mx-auto">
+
+                            <form class="auth-form auth-signup-form row gx-3 gy-2 align-items-center">
+
+                                <div class="col">
+                                    @Html.EditorFor(model => model.Nome, new { htmlAttributes = new { @class = "form-control", @placeholder = "Digite seu nome ou coorporativa " } })
+                                    @Html.ValidationMessageFor(model => model.Nome, "", new { @class = "text-danger" })
+                                </div>
+                                <br />
+
+                                <div class="row">
+
+                                    <div class="col-sm-7  mb-7">
+
+                                        @Html.DropDownList("Id_tipo_Usuario", null, htmlAttributes: new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(model => model.Id_tipo_Usuario, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                                <br />
+                                <div class="row">
+                                    <div class="col-sm-5">
+                                        @Html.EditorFor(model => model.Endereco, new { htmlAttributes = new { @class = "form-control", @placeholder = "Digite o endereço" } })
+                                        @Html.ValidationMessageFor(model => model.Endereco, "", new { @class = "text-danger" })
+                                    </div>
+                                    <div class="col-sm-7">
+                                        @Html.DropDownList("Id_Municipio", null, htmlAttributes: new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(model => model.Id_Municipio, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                                <br />
+                                <div class="row">
+                                    <div class="col">
+                                        @Html.EditorFor(model => model.Telefone, new { htmlAttributes = new { @class = "form-control", @placeholder = "Digite o Contacto" } })
+                                        @Html.ValidationMessageFor(model => model.Telefone, "", new { @class = "text-danger" })
+                                    </div>
+                                    <div class="col">
+                                        @Html.EditorFor(model => model.Tel_Secundario, new { htmlAttributes = new { @class = "form-control", @placeholder = " Contacto(opcional)" } })
+                                        @Html.ValidationMessageFor(model => model.Tel_Secundario, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                                <br />
+                                <div class="row">
+                                    <div class="col">
+                                        @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control", @placeholder = "nzando@gmail.com" } })
+                                        @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                                    </div>
+                                    <div class="col">
+                                        @Html.TextAreaFor(model => model.Biografia, new { @class = "form-control", @placeholder = "Fale sobre si!" })
+                                        @Html.ValidationMessageFor(model => model.Biografia, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                                <br />
+                                <div class="row">
+                                    <div class="col">
+                                        @Html.EditorFor(model => model.Username, new { htmlAttributes = new { @class = "form-control", @placeholder = "Digite o username" } })
+                                        @Html.ValidationMessageFor(model => model.Username, "", new { @class = "text-danger" })
+                                    </div>
+                                    <div class="col">
+                                        @Html.EditorFor(model => model.Senha, new { htmlAttributes = new { @class = "form-control", @placeholder = "Digite a senha" } })
+                                        @Html.ValidationMessageFor(model => model.Senha, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                                <br />
+                                <div class="form-group ">
+                                    @*@Html.EditorFor(model => model.Foto, new { htmlAttributes = new { @class = "form-control" } })
+                                        <img src="@Url.Content(Model.Foto)" style="margin:10px; height:200px; width:200px; border-radius:50%" id="previewImage" />*@
+                                    <div class="input-group">
+                                        <input type="file" style="color: #ff6a00" name="ImageUpload" onchange="ShowImagePreview(this, document.getElementById('previewImage'))">
+                                    </div>
+                                </div>
+                                <br>
+                                @*<div class="extra mb-3  ">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" value="" id="RememberPassword">
+                                            <label class="form-check-label" style="color:#3E2723" for="LembrarPassword">
+                                                I agree to Portal's <a href="#" class="app-link">Terms of Service</a> and <a href="#" class="app-link">Privacy Policy</a>.
+                                            </label>
+                                        </div>
+                                    </div>*@
+
+                                <!--//extra-->
+
+                                <div @*class="col-md-offset-2 col-md-10 "*@ class="text-center">
+                                    <input type="submit" value="Criar " class="btn app-btn-primary w-100 theme-btn mx-auto" @*class="btn app-btn-primary w-100 theme-btn mx-auto"*@ />
+                                </div>
+
+                                <br />
+
+
+                                <div class=" text-center " style="color: #ff6a00">
+                                    Existe uma conta? Clique aqui
+                                    <a class="text-link" href="@Url.Action("Login", "Tb_Usuarios")">Entrar</a>
+                                </div>
+
+                            </form><!--//auth-form-->
+                        </div><!--//auth-form-container-->
+                    </div><!--//auth-body-->
+                    <!--//app-auth-footer-->
+                </div><!--//flex-column-->
+            </div><!--//auth-main-col-->
+            <!--//auth-background-col-->
+        </div> <!--//row-->
+        <!--//row-->
+    }
+
+</body>
+</html>
+@*<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script type="text/javascript">
+
+       @if (TempData["msg"] != null) {
+            <text>
+                $(document).ready(function(){
+                    swal({ title: "Good job!", text: "@TempData["msg"]", type: "success" });
+                })
+            </text>
+        }
+    </script>*@
+@*<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>*@
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
